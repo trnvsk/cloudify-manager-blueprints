@@ -12,3 +12,7 @@ manager_server_user: ubuntu # put manager server user
 manager_server_name: cloudify-manager-server # put name of the manager server
 network:
   name: # put name of the network
+manager_private_existing_key_path: # path to existing manager private key
+manager_public_existing_key_path: # path to existing manager pub key
+agent_private_existing_key_path: # path to existing agent private key
+agent_public_existing_key_path: # path to existing agent pub key
