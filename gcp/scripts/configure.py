@@ -27,7 +27,11 @@ def configure_manager(manager_config_path=GCP_DEFAULT_CONFIG_PATH,
     auth = gcp_config.get('auth')
     if auth and os.path.isfile(auth):
         fabric.api.put(auth, manager_config_path)
-    node_instances = ctx._endpoint.storage.get_node_instances()
+    try:
+        node_instances = ctx._endpoint.storage.get_node_instances()
+    except AttributeError:
+        # non-local executions do not have storage attribute in _endpoint
+        return
     resources = {}
     for node_instance in node_instances:
         if node_instance.node_id in constants.SECURITY_GROUPS:
