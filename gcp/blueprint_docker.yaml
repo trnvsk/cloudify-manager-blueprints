@@ -287,8 +287,9 @@ node_types:
 
 plugins:
   cli:
-    install: false
+    install: true
     executor: central_deployment_agent
+    source: https://github.com/trnvsk/cloudify-cli/archive/3.2-dump-manager-deployment-fix.zip
 
 outputs:
   manager_ip:
